@@ -1,0 +1,25 @@
+{% extends '../content.html' %}
+
+{% block header %}
+
+    {% if request.identity_context_data.authenticated %}
+        You're signed in, {{ request.identity_context_data.username }}!
+    {% else %}
+        You're not signed in.
+    {% endif %}
+
+{% endblock %}
+
+{% block text %}
+    {% if request.identity_context_data.authenticated %}
+        <!--Click here to get your <a class="btn btn-info p-1" href="{% url 'token_details' %}">ID Token Details</a>-->
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-primary p-1 mr-5" href="{% url 'create_ticket' %}">Create a Contact</a>
+
+                <a class="btn btn-primary p-1 ml-5" href="{% url 'tickets' %}">View all Contacts</a>
+            </div>
+    {% else %}
+        Use the button on the top right to sign in. <br/> 
+        <!--Attempts to get your <a href="{% url 'token_details' %}">ID Token Details</a>-->
+    {% endif %}
+{% endblock %}

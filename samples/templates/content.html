@@ -1,0 +1,32 @@
+{% extends './layout.html' %}
+
+{% block banner_text %}
+    {% block title %}
+        Simple Web App to demonstrate Web API calls
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+<div class="card">
+    <h5 class="card-header">
+        {% block header%} {% endblock %}
+    </h5>
+    <div class="card-body">
+        <p class="card-text">
+            {% block text %} {% endblock %}
+        </p>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+
+    {% if request.identity_context_data.authenticated == False %}
+        <div id="wrapper">
+            <!-- the MS_ID_WEB key is configurable in the config file -->
+        </div>
+    {% endif %}
+
+{% endblock %}
+
