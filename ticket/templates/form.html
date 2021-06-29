@@ -1,0 +1,26 @@
+{% extends 'content.html' %}
+
+{% block header %}
+    Create a contact
+{% endblock %}
+
+{% block text %}
+    <div class="content">
+        <form action = "" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{form.as_ul}}
+            </fieldset>
+            <fieldset class="form-group">
+                <button type="submit" class="btn btn-primary">Create Contact</button>
+            </fieldset>
+            
+        </form>
+
+        {% if status%}
+            <p>{{status}}</p>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

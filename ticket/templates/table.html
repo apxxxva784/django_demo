@@ -1,0 +1,36 @@
+{% extends 'content.html' %}
+
+{% block header %}
+    View all contacts
+{% endblock %}
+
+{% block text %}
+    <div class="content">
+        {% if tickets %}
+        <table class="table is-fullwidth is-striped is-bordered">
+            <thead>
+            <tr>
+                <th>Serial Number</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Created On</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <th>{{ ticket.apt_serialnumber }}</th>
+                <td>{{ ticket.apt_name }}</td>
+                <td>{{ ticket.apt_phonenumber }}</td>
+                <td>{{ ticket.createdon }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {%else%}
+        <p>Sorry, you do not permissions!</p>
+        {%endif%}
+
+    </div>
+
+{% endblock %}
